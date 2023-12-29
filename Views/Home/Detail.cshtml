@@ -1,0 +1,32 @@
+<!-- Views/Home/Detail.cshtml -->
+@model ClothingItem
+
+<h2>Clothing Item Details</h2>
+<BR>
+<div class="container">
+    <div class="row">
+        <!-- Column for Image -->
+        <div class="col-md-4">
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="clothing-item-image" />
+        </div>
+        
+        <!-- Column for Other Details -->
+        <div class="col-md-4">
+            <h3>Name: @Model.Name</h3>
+            <p>Type: @Model.Type</p>
+            <p>Color: @Model.Color</p>
+            <p>Size: @Model.Size</p>
+            <p>Stock: @Model.Stock</p>
+            <p>Price: @Model.Price</p>
+            
+            <!-- Additional details as needed... -->
+
+            <form method="post" asp-action="AddToCart" asp-route-id="@Model.Id">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" value="1" min="1" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+
+        </div>
+    </div>
+</div>

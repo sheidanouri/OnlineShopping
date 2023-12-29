@@ -1,0 +1,42 @@
+<!-- Views/Home/ClothList.cshtml -->
+@model List<ClothingItem>
+
+<h2>Clothing Items</h2>
+
+<form method="get" asp-action="Index">
+    <label for="nameFilter">Name:</label>
+    <input type="text" name="nameFilter" value="@ViewBag.NameFilter" />
+    <label for="typeFilter">Type:</label>
+    <input type="text" name="typeFilter" value="@ViewBag.TypeFilter" />
+    <label for="colorFilter">Color:</label>
+    <input type="text" name="colorFilter" value="@ViewBag.ColorFilter" />
+    <button type="submit">Apply Filters</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Type</td>
+                <td>@item.Color</td>
+                <td>@item.Size</td>
+                <td>@item.Stock</td>
+                <td>@item.Price</td>
+                <td><a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

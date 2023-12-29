@@ -1,0 +1,11 @@
+@model UserSelectionViewModel
+@{
+    Layout = null; // This will exclude the layout
+    ViewData["Title"] = "Select User";
+}
+<h2>Select User</h2>
+
+<form asp-action="SelectUser" method="post">
+    <label for="SelectedUserId">Select User:</label>
+    <button type="submit" class="btn btn-primary">Select</button>
+</form>
